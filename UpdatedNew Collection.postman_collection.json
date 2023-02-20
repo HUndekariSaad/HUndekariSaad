@@ -1,0 +1,759 @@
+{
+	"info": {
+		"_postman_id": "0557cb0c-980a-44f4-89d9-113eef113252",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVVEkwMDIxMiIsImV4cCI6MTY3MDczOTc3NiwiaWF0IjoxNjcwNzAzNzc2fQ.or9yi0YGbgR35SDuOCp5grUV3jKm8CZmCTAgH_ubVBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"koCode\": \"UTI00212\",\r\n    \"userPassword\": \"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "updateUserPassword",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVVEkwMDIxMiIsImV4cCI6MTY3MDgwMjAyNiwiaWF0IjoxNjcwNzY2MDI2fQ.hurYv7GITHNwyzz5qEIz2E9F6WRA4so_SJ9KLXTqTtU",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   ko_code:\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/updatebmpass/UTI00212/admin@123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"updatebmpass",
+						"UTI00212",
+						"admin@123"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateBMProfile",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVVEkwMDIxMiIsImV4cCI6MTY3MDgwMzIxOCwiaWF0IjoxNjcwNzY3MjE4fQ.cBLfoH-ycEkS50k3F9XcMoaMVVoa5chPoYVYLWQRHkc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"bankMitraId\": 1,\r\n    \"bankMitraBankName\": \"SBI\",\r\n    \"koCode\": \"UTI00213\",\r\n    \"bankMitraName\": \"Abhishek Patil\",\r\n    \"mobileNumber\": \"9876543211\",\r\n    \"bankMitraCoOrdinatorId\": \"MAHKOPRAJ2022\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/updatebmprofile",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"updatebmprofile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveBM",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"bankMitrId\": 5,\r\n    \"bankMitraName\": \"RBL\",\r\n    \"bankMitraBankName\": \"Rahul\",\r\n    \"bankMitraFlag\": \"REG\",\r\n    \"bankMitraSupervisorId\": \"BAK20221011\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/savebm",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"savebm"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBMbyID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/get/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"get",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetComplaintByID",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/getc/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"getc",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBMByKOCode",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVVEkwMDIxMiIsImV4cCI6MTY3MDgwMTAxMSwiaWF0IjoxNjcwNzY1MDExfQ.asaCdYYamLIp6hbQO-jLQtCpTfCfvJUs1GFRjf0MuHo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/getbykocode/UTI00214",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"getbykocode",
+						"UTI00214"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetBMList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVVEkwMDIxMiIsImV4cCI6MTY3MDc5ODI3NywiaWF0IjoxNjcwNzYyMjc3fQ.YXPpKkz07khI7jQtx2ej2h2GKbNT5thwSBNb1fLY0Ao",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/getbykocode/UTI00214",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"getbykocode",
+						"UTI00214"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SaveComplaint",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/savecom",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"savecom"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetComplaintList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJVVEkwMDIxMiIsImV4cCI6MTY3MDczOTc3NiwiaWF0IjoxNjcwNzAzNzc2fQ.or9yi0YGbgR35SDuOCp5grUV3jKm8CZmCTAgH_ubVBg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   ko_code:\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/getcomlist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"getcomlist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateComByIdwithStatus",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/updatecom/1/PENDING",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"updatecom",
+						"1",
+						"PENDING"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetPendingComplaintList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/getcompendinglist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"getcompendinglist"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetCompletedComplaintList",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n      \"complaintId\": 9,\r\n    \"bankName\": \"BOM\",\r\n    \"empName\": \"Anurag G\",\r\n    \"koCode\": \"BAK20221011\",\r\n    \"mobileNumber\": \"9876543210\",\r\n    \"anyDeskNumber\": \"987678456234\",\r\n    \"otherDetails\": \"Mouse is not working\",\r\n    \"complaintStatus\": \"PENDING\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/techteam/getcomcompletelist",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"techteam",
+						"getcomcompletelist"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

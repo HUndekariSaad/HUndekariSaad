@@ -1,0 +1,261 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 ">
+      <div class="card card-box my-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-sm-12">
+              <h4 class="py-3">Setting</h4>
+            </div>
+            <div class="col-7">
+              <div class="row">
+              </div>
+            </div>
+            <tabset>
+              <!-- Frist tab -->
+              <tab heading="Add Coordinator" id="tab1">
+                <form action="" [formGroup]="CoordinatorForm" (ngSubmit)="OnSubmitCoordinatorForm()" class="form mb-15">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="name"
+                          [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Enter Name">
+                        <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                          <div *ngIf="f.name.errors.required"> Please Enter Name</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label for="exampleInputPassword1">Mobile Number</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="mobileNumber"
+                          maxlength="10" [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }"
+                          placeholder="Enter Mobile Number">
+                        <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                          <div *ngIf="f.mobileNumber.errors.required"> Please Enter Mobile Number</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                          <div class="form-group m-2">
+                            <label >roles</label>
+                        <ng-select [items]="cities" bindLabel="Name" bindValue="name" [multiple]="true"
+                           class=""
+                          placeholder="Select Roles"  formControlName="roles"
+                          [ngClass]="{ 'is-invalid': submitted && f.roles.errors }">
+                        </ng-select>
+                        <div *ngIf="submitted && f.roles.errors" class="invalid-feedback">
+                          <div *ngIf="f.roles.errors.required"> Please Enter roles</div>
+                    </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label>RM Id</label>
+                        <!-- <input type="text" class="form-control form-control-sm"
+                         placeholder="Enter RM Name"> -->
+                         <input type="text" class="form-control form-control-sm" formControlName="rmId"
+                         [ngClass]="{ 'is-invalid': submitted && f.rmId.errors }"
+                         placeholder="Enter RM Id">
+                        <div *ngIf="submitted && f.rmId.errors" class="invalid-feedback">
+                          <div *ngIf="f.rmId.errors.required"> Please Enter RM Id</div>
+                    </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label >User Name</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="username"
+                          [ngClass]="{ 'is-invalid': submitted && f.username.errors }" placeholder="Enter User Name">
+                        <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                          <div *ngIf="f.username.errors.required"> Please Enter User Name</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label for="exampleInputPassword1">Password</label>
+                        <input type="Password" class="form-control form-control-sm" formControlName="password"
+                          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" placeholder="Enter Password">
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required"> Please Enter Password</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- <div formArrayName="roles" >
+                      <div  *ngFor="let itemForm of roles.controls; let i = index" [formGroupName]="i">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group m-2">
+                              <label for="exampleInputEmail1">Role</label>
+                              <input type="text" class="form-control form-control-sm" formControlName="coordinator"
+                              [ngClass]="{ 'is-invalid': submitted && f.coordinator.errors }" placeholder="Enter Coordinator">
+                              <div *ngIf="submitted && f.coordinator.errors" class="invalid-feedback">
+                                <div *ngIf="f.coordinator.errors.required"> Please Enter Coordinator</div>
+                          </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group m-2">
+                              <label for="exampleInputEmail1">Role</label>
+                              <input type="text" class="form-control form-control-sm" formControlName="rm"
+                              [ngClass]="{ 'is-invalid': submitted && f.rm.errors }" placeholder="Enter RM Name">
+                              <div *ngIf="submitted && f.rm.errors" class="invalid-feedback">
+                                <div *ngIf="f.rm.errors.required"> Please Enter RNName</div>
+                          </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+
+
+                  <div class=" mt-2">
+                    <button type="button" (click)="OnSubmitCoordinatorForm()"
+                      class="btn btn-primary  m-1  text-white">SUBMIT</button>
+                    <button type="button" class="btn btn-outline-dark m-1  " (click)="Delete()">Delete</button>
+                  </div>
+                </form>
+              </tab>
+              <!-- Sec tab -->
+              <tab heading="Add Member" id="tab1">
+                <form action="" [formGroup]="MemeberForm" (ngSubmit)="OnSubmitMemberForm()" class="form mb-15">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label for="exampleInputEmail1">Name</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="name"
+                          [ngClass]="{ 'is-invalid': isSubmitted && v.name.errors }" placeholder="Enter Name">
+                        <div *ngIf="isSubmitted && v.name.errors" class="invalid-feedback">
+                          <div *ngIf="v.name.errors.required"> Please Enter Name</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label >Mobile Number</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="mobileNumber"
+                          maxlength="10" [ngClass]="{ 'is-invalid': isSubmitted && v.mobileNumber.errors }"
+                          placeholder="Enter Mobile Number">
+                        <div *ngIf="isSubmitted && v.mobileNumber.errors" class="invalid-feedback">
+                          <div *ngIf="v.mobileNumber.errors.required"> Please Enter Mobile Number</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label >User Name</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="username"
+                          [ngClass]="{ 'is-invalid': isSubmitted && v.username.errors }" placeholder="Enter User Name">
+                        <div *ngIf="isSubmitted && v.username.errors" class="invalid-feedback">
+                          <div *ngIf="v.username.errors.required"> Please Enter User Name</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label>Password</label>
+                        <input type="Password" class="form-control form-control-sm" formControlName="password"
+                          [ngClass]="{ 'is-invalid': isSubmitted && v.password.errors }" placeholder="Enter Password">
+                        <div *ngIf="isSubmitted && v.password.errors" class="invalid-feedback">
+                          <div *ngIf="v.password.errors.required"> Please Enter Password</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label >Role(Member/Admin)</label>
+                        <select type="text" class="custom-select" (change)="changeCity($event)" formControlName="role" placeholder="Select Role"
+                          [ngClass]="{ 'is-invalid': isSubmitted && v.role.errors }">
+                          <option *ngFor="let role of rolList" [ngValue]="role">
+                            {{ role }}
+                          </option>
+                        </select>
+                        <div *ngIf="isSubmitted && v.role.errors" class="invalid-feedback">
+                          <div *ngIf="v.role.errors.required"> Please Enter Role</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class=" mt-2">
+                    <button type="button" class="btn btn-primary  m-1" (click)="OnSubmitMemberForm()">SUBMIT</button>
+                    <button type="button" class="btn btn-outline-dark m-1" (click)="formDelete()">Delete</button>
+                  </div>
+                </form>
+              </tab>
+              <!-- there'd tab -->
+              <tab heading="Add Bank" id="tab3">
+                <form  [formGroup]="BankForm" (ngSubmit)="OnBankSubmit()" class="form mb-15">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label for="">Bank Name</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="name"
+                          [ngClass]="{ 'is-invalid': fSubmitted && F.name.errors }" placeholder="Enter Bank Name">
+                        <div *ngIf="fSubmitted && F.name.errors" class="invalid-feedback">
+                          <div *ngIf="F.name.errors.required"> Please Enter Bank Name</div>
+                        </div>
+                      </div>
+                    </div>
+                    </div>
+                  <div class=" mt-2">
+                    <button type="button" class="btn btn-primary  " (click)="OnBankSubmit()">Add</button>
+                    <button type="button" class="btn btn-outline-dark m-1" (click)="resetBank()">Delete</button>
+                  </div>
+                </form>
+              </tab>
+              <!-- For tab -->
+              <tab heading="Bulk Import" id="tab4">
+                <form action="..." method="post" enctype="multipart/form-data" [formGroup]="ImportExcelForm" (ngSubmit)="OnSubmit()" class="form mb-15">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group m-2">
+                        <label for="exampleInputEmail1">Import Excel</label>
+                        <!-- <input type="file" (change)="onFileChange($event)" accept=".xlsx" id="fileControl"
+                          class="form-control form-control-sm" formControlName="file"
+                          [ngClass]="{ 'is-invalid': Submitted && s.file.errors }"> -->
+                        <input type="file" name="file"  (change)="onFileChange($event)"
+                          class="form-control form-control-sm" formControlName="file"
+                          [ngClass]="{ 'is-invalid': Submitted && s.file.errors }">
+                        <div *ngIf="Submitted && s.file.errors" class="invalid-feedback">
+                          <div *ngIf="s.file.errors.required"> Please Import Excel</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class=" mt-2">
+                    <button type="button" class="btn btn-primary  " (click)="OnSubmit()">Import</button>
+                    <button type="button" class="btn btn-outline-dark m-1" (click)="resetImport()">Delete</button>
+                  </div>
+                </form>
+              </tab>
+            </tabset>
+            <!-- </form> -->
+                   <!-- <table class="sjs-table">
+                    <tbody>
+                      <tr *ngFor="let row of data">
+                      <td *ngFor="let val of row">
+                        {{val}}
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

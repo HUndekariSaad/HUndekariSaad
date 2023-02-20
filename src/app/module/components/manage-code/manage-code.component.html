@@ -1,0 +1,243 @@
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12 ">
+
+        <div class="card card-box my-4">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-12">
+                <h4 class="py-3">Manage Code</h4>
+              </div>
+              <div class="col-7">
+                <div class="row">
+                </div>
+              </div>
+
+                <tabset>
+                   <!-- First tab -->
+                  <tab heading="Manage Ko Code" id="tab1">
+                    <form action="" [formGroup]="UpdateKoCodeForm" (ngSubmit)="OnSubmit()" class="form mb-15">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label for="exampleInputPassword1">Ko Code</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="koCode" (keydown.enter)="ManageCodeGetById()"
+                            [ngClass]="{ 'is-invalid': submitted && f.koCode.errors }" placeholder="Enter Ko Code">
+                          <div *ngIf="submitted && f.koCode.errors" class="invalid-feedback">
+                            <div *ngIf="f.koCode.errors.required"> Please Enter Ko Code</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label for="exampleInputEmail1">Bank Name</label>
+                          <ng-select
+                          [items]="getAllBankList"  class=""
+                          formControlName="bankName" bindLabel="name" bindValue="name"
+                          [ngClass]="{ 'is-invalid': submitted && f.bankName.errors }">
+                        </ng-select>
+                        <!-- <div class="invalid-feedback" >Please Enter Bank Name</div> -->
+                          <div *ngIf="submitted && f.bankName.errors" class="invalid-feedback">
+                            <div *ngIf="f.bankName.errors.required"> Please Enter Bank Name</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label for="exampleInputEmail1"> Name</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="name"
+                            [ngClass]="{ 'is-invalid': submitted && f.name.errors }" placeholder="Enter Name">
+                          <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+                            <div *ngIf="f.name.errors.required"> Please Enter Name</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label for="exampleInputPassword1">Contact Number</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="mobileNumber"  maxlength="10"
+                            [ngClass]="{ 'is-invalid': submitted && f.mobileNumber.errors }" placeholder="Enter Contact Number">
+                          <div *ngIf="submitted && f.mobileNumber.errors" class="invalid-feedback">
+                            <div *ngIf="f.mobileNumber.errors.required"> Please Enter Contact Number</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label for="exampleInputEmail1">Coordinator Id</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="coOrdinatorId"
+                            [ngClass]="{ 'is-invalid': submitted && f.coOrdinatorId.errors }" placeholder="Enter Coordinator Id">
+                          <div *ngIf="submitted && f.coOrdinatorId.errors" class="invalid-feedback">
+                            <div *ngIf="f.coOrdinatorId.errors.required"> Please Enter Coordinator Id</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row mt-2">
+                      <div class="">
+                          <button type="button" (click)="OnSubmit()"
+                              class="btn btn-primary  m-1"
+                              >Update</button>
+                          <button type="button"
+                              class="btn btn-outline-dark m-1 " (click)="Delete()"
+                             >Delete</button>
+                      </div>
+                  </div>
+                </form>
+                  </tab>
+           <!-- Sec tab -->
+                  <tab heading="Add Ko Code" id="tab1">
+                    <form action="" [formGroup]="KoCodeForm" (ngSubmit)="OnSubmits()" class="form mb-15">
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >Ko Code</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="koCode" (keydown.enter)="KoCodeGetById()"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.koCode.errors }" placeholder="Enter Ko Code">
+                          <div *ngIf="isSubmitted && V.koCode.errors" class="invalid-feedback">
+                            <div *ngIf="V.koCode.errors.required"> Please Enter ko Code</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label>Bank Name</label>
+                          <ng-select
+                          [items]="getAllBankList"  class="" placeholder="Enter Bank Name"
+                          formControlName="bankName" bindLabel="name" bindValue="name"
+                          [ngClass]="{ 'is-invalid': isSubmitted && f.bankName.errors }">
+                        </ng-select>
+                          <div *ngIf="isSubmitted && V.bankName.errors" class="invalid-feedback">
+                            <div *ngIf="V.bankName.errors.required"> Please Enter bank Name</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label> Name</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="name"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.name.errors }" placeholder="Enter Name">
+                          <div *ngIf="isSubmitted && V.name.errors" class="invalid-feedback">
+                            <div *ngIf="V.name.errors.required"> Please Enter Name</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label>Contact Number</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="mobileNumber"  maxlength="10"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.mobileNumber.errors }" placeholder="Enter Contact Number">
+                          <div *ngIf="isSubmitted && V.mobileNumber.errors" class="invalid-feedback">
+                            <div *ngIf="V.mobileNumber.errors.required"> Please Enter Contact Number</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >State</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="state"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.state.errors }" placeholder="Enter State">
+                          <div *ngIf="isSubmitted && V.state.errors" class="invalid-feedback">
+                            <div *ngIf="V.state.errors.required"> Please Enter State</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >District</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="district"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.district.errors }" placeholder="Enter District">
+                          <div *ngIf="isSubmitted && V.district.errors" class="invalid-feedback">
+                            <div *ngIf="V.district.errors.required"> Please Enter District</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >Region</label>
+                          <input type="email" class="form-control form-control-sm" formControlName="region"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.region.errors }" placeholder="Enter Region">
+                          <div *ngIf="isSubmitted && V.region.errors" class="invalid-feedback">
+                            <div *ngIf="V.region.errors.required"> Please Enter Region</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >Branch Name</label>
+                          <input type="text" class="form-control form-control-sm"   formControlName="branchName"
+                            [ngClass]="{ 'is-invalid': isSubmitted && V.branchName.errors }" placeholder="Branch Name">
+                          <div *ngIf="isSubmitted && V.branchName.errors" class="invalid-feedback">
+                            <div *ngIf="V.branchName.errors.required"> Please Enter Branch Name</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >Village Name</label>
+                          <input type="text" class="form-control form-control-sm" formControlName="village"
+                          [ngClass]="{ 'is-invalid': isSubmitted && V.village.errors }"  aria-describedby="emailHelp" placeholder="Enter Village Name">
+                          <div *ngIf="isSubmitted && V.village.errors" class="invalid-feedback">
+                            <div *ngIf="V.village.errors.required"> Please Enter Village Name</div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label >Coordinator </label>
+                          <input type="text" class="form-control form-control-sm" formControlName="coOrdinatorId"
+                          [ngClass]="{ 'is-invalid': isSubmitted && V.coOrdinatorId.errors }"  placeholder="Enter Coordinator">
+                          <div *ngIf="isSubmitted && V.coOrdinatorId.errors" class="invalid-feedback">
+                            <div *ngIf="V.coOrdinatorId.errors.required"> Please Enter Coordinator</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="row">
+                      <div class="col-md-6">
+                        <div class="form-group m-2">
+                          <label for="exampleInputEmail1">RM Name</label>
+                          <input type="email" class="form-control form-control-sm" formControlName="rmName"
+                          [ngClass]="{ 'is-invalid': isSubmitted && V.rmName.errors }"  aria-describedby="emailHelp" placeholder="Enter RM Name">
+                          <div *ngIf="isSubmitted && V.rmName.errors" class="invalid-feedback">
+                            <div *ngIf="V.rmName.errors.required"> Please Enter RM Name</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div> -->
+
+                    <div class="row mt-2">
+                      <div >
+                          <button type="button"
+                              class="btn btn-primary  m-1" type="button" (click)="OnSubmits()"
+                              >Add</button>
+                              <button type="button"
+                              class="btn btn-outline-dark m-1" (click)="formDelete()"
+                             >Delete</button>
+                      </div>
+                  </div>
+                  </form>
+                  </tab>
+                </tabset>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+

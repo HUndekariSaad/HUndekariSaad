@@ -3,7 +3,13 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  // baseUrl: 'http://172.16.16.12:8090/techteam/',
+  // baseUrls: 'http://172.16.16.12:8090/',
+  // baseUrl: 'https://172.16.16.12:8090/',
+  // baseUrls: 'https://172.16.16.12:8090/',
+  baseUrl: 'http://techsupport.visel.in:8090/',
+  baseUrls: 'http://techsupport.visel.in:8090/',
 };
 
 /*

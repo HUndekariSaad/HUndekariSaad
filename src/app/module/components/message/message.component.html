@@ -1,0 +1,117 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 ">
+      <div class="card card-box my-4">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-5">
+              <h4 class="py-3">Message</h4>
+            </div>
+            <div class="col-7">
+              <div class="row">
+              </div>
+            </div>
+            <form action="" [formGroup]="MessageForm" (ngSubmit)="OnSubmit()" class="form mb-15">
+              <div class="row">
+
+                <div class="col-md-6" >
+                  <div class="form-group m-2">
+                     <div class="row">
+                      <div class="col-sm-6">
+                        <label >Select User(BM/Co)</label>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" (click)="onclick()" name="inlineRadioOptions" id="inlineRadio2" value="option2" checked>
+                          <label class="form-check-label" for="inlineRadio2">BankMitra</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                          <input class="form-check-input" type="radio" (click)="onclick()" name="inlineRadioOptions" id="inlineRadio1" value="option1" >
+                          <label class="form-check-label" for="inlineRadio1">Coordinator</label>
+                        </div>
+                      </div>
+                     </div>
+
+                    <!-- Member -->
+                    <div *ngIf="visible2">
+                      <ng-select [items]="getKoCode" formControlName="recipients" bindLabel="username" bindValue="username"
+                      [multiple]="true" groupBy="all" [selectableGroup]="true" placeholder="Select User Coordinator"
+                      (change)="onMaterialGroupChange($event)"
+                      [ngClass]="{ 'is-invalid': submitted && f.recipients.errors }">
+                      <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" type="checkbox" /> Select All
+                      </ng-template>
+                    </ng-select>
+                    <div *ngIf="submitted && f.recipients.errors" class="invalid-feedback">
+                      <div *ngIf="f.recipients.errors.required"> Please Enter User</div>
+                    </div>
+                  </div>
+                    <div *ngIf="visible">
+                    <ng-select [items]="users"  formControlName="recipients" bindLabel="koCode" bindValue="koCode"
+                      [multiple]="true" groupBy="all" [selectableGroup]="true" placeholder="Select User BankMitra"
+                      (change)="onMaterialGroupChange($event)"
+                      [ngClass]="{ 'is-invalid': submitted && f.recipients.errors }">
+                      <ng-template ng-optgroup-tmp let-item="item" let-item$="item$" let-index="index">
+                        <input id="item-{{index}}" type="checkbox" /> Select All
+                      </ng-template>
+                    </ng-select>
+                    <div *ngIf="submitted && f.recipients.errors" class="invalid-feedback">
+                      <div *ngIf="f.recipients.errors.required"> Please Enter User</div>
+                    </div>
+                  </div>
+                  </div>
+                  <!-- <div class="form-group form-check" style="margin-left: 7px;">
+                    <input type="checkbox" formControlName="broadcast" id="broadcast" class="form-check-input"  />
+                    <label for="acceptTerms" class="form-check-label">select all</label>
+                  </div> -->
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group m-2">
+                    <label for="exampleInputEmail1">Sender</label>
+                    <ng-select [items]="City" bindLabel="name" bindValue="name" placeholder="Select Sender"
+                      formControlName="sender" [ngClass]="{ 'is-invalid': submitted && f.sender.errors }">
+                    </ng-select>
+                    <div *ngIf="submitted && f.sender.errors" class="invalid-feedback">
+                      <div *ngIf="f.sender.errors.required"> Please Enter Sender</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <input type="text" readonly class="form-control form-control-sm" formControlName="sender"
+                    [ngClass]="{ 'is-invalid': submitted && f.sender.errors }"
+                    placeholder="Enter RM Name"> -->
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group m-2">
+                    <label for="exampleInputEmail1">Message</label>
+                    <textarea class="form-control" formControlName="body" placeholder="Enter Message"
+                      [ngClass]="{ 'is-invalid': submitted && f.body.errors }" rows="1"></textarea>
+                    <div *ngIf="submitted && f.body.errors" class="invalid-feedback">
+                      <div *ngIf="f.body.errors.required"> Please Enter Message</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="form-group m-2">
+                    <label></label>
+                  </div>
+                </div>
+              </div>
+              <div class=" m-2">
+                <button type="submit" class="btn btn-primary m-1">Send</button>
+                <button type="submit" class="btn btn-outline-dark m-1" (click)="Delete()">Delete</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </div>
+</div>

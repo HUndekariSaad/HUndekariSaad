@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+</head>
+<body>
+<div class="container-fluid">
+   <i class="fa-sharp fa-solid fa-bars" (click)="togglesideBar()"></i>
+  <div   class="navigation active">
+    <div class="sidebar-title">
+      <img src="assets\img\ICON ITech team.png" alt="" width="40" height="40" alt="" class="tech-img">
+      <h5>ITech Team</h5>
+    </div>
+    <ul>
+      <!-- <li  [ngClass]="{'active': step==='step1'}" (click)="step='step1'" class="list active">
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/dashboard">
+          <span class="icon"><img src="../../../../assets/img/grid_view.png" alt="lds;fdsf" /></span>
+          <span class="title">Dashbord</span>
+        </a>
+      </li> -->
+      <li  [ngClass]="{'active': step==='step1'}" (click)="step='step1'" class="list active">
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/dashboard" (click)="togglesideBar()">
+          <span class="icon"><img src="../../../../assets/img/grid_view.png"  alt="lds;fdsf" /></span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+      <li  [ngClass]="{'active': step==='step2'}" (click)="step='step2'" class="list">
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/reports" (click)="togglesideBar()">
+          <span class="icon"><img src="../../../../assets/img/lab_profile (1).png" alt="lds;fdsf" /></span>
+          <span class="title">Reports</span>
+        </a>
+      </li>
+      <li [ngClass]="{'active': step==='step3'}" (click)="togglesideBar()" (click)="step='step3'" class="list">
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/managecode">
+          <span class="icon"><img src="../../../../assets/img/manage_accounts.png" alt="lds;fdsf" /></span>
+          <span class="title">Manage Code</span>
+        </a>
+      </li>
+      <li [ngClass]="{'active': step==='step4'}" (click)="togglesideBar()" (click)="step='step4'">
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/message" >
+          <span class="icon"><img src="../../../../assets/img/3p.png" alt="lds;fdsf" /></span>
+          <span class="title">Message</span>
+        </a>
+      </li >
+      <li [ngClass]="{'active': step==='step5'}" (click)="togglesideBar()" (click)="step='step5'" class="list" *ngIf="isAdmin" >
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/setting" >
+          <span class="icon"><img src="../../../../assets/img/settings.png" alt="lds;fdsf" /></span>
+          <span class="title">Setting</span>
+        </a>
+      </li>
+      <li [ngClass]="{'active': step==='step6'}" (click)="togglesideBar()" (click)="step='step6'" class="list">
+        <b></b>
+        <b></b>
+        <a class="nav-link" routerLink="/admin/changepassword" >
+          <span class="icon"><img src="../../../../assets/img/lock.png" alt="lds;fdsf" /></span>
+          <span class="title">Change Password</span>
+        </a>
+      </li>
+      <li [ngClass]="{'active': step==='step7'}" (click)="togglesideBar()" (click)="step='step7'" class="list">
+        <b></b>
+        <b></b>
+        <a class="nav-link" (click)="onlogout()" routerLink="/login" >
+          <span class="icon"><img src="../../../../assets/img/logout.png" alt="lds;fdsf" /></span>
+          <span class="title">Logout</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+<div class="main-content">
+
+  <nav class="navbar navbar-expand-lg navbar-light "  #stickyMenu [class.sticky] = "sticky">
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="row" style="width: 98%;">
+        <div class="col-lg-8 col-md-7 col-sm-12">
+          <div class=" search-control" >
+            <div class="form-group">
+              <input _ngcontent-ppk-c234="" formcontrolname="location" type="text" maxlength="30" class="form-control" placeholder="Search" fdprocessedid="pqzc">
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-5 col-sm-12">
+          <div class="user-warpper" style="background-color: #fff;">
+            <div class="row" style="margin-left: 30px;">
+              <div class="col-sm-10">
+              <h6 *ngIf="GetProfileData">{{GetProfileData.name}}</h6>
+              <small *ngIf="GetProfileData">{{GetProfileData.roles}}</small>
+            </div>
+            <div class="col-sm-2">
+              <img src="https://cdn.dribbble.com/users/4781516/screenshots/10796279/6e3f47bf33153bd352d684a4d0ddea12.gif" alt="" width="40" height="40"  alt="" class="nav-img">
+              <!-- <img src="https://static.wixstatic.com/media/9b1ab6_df069d85df9f4763a91693ab9d5a7b5c~mv2.gif" alt="" width="40" height="40"  alt="" class="nav-img"> -->
+              <!-- <img src="https://cdn.dribbble.com/users/6875924/screenshots/17027386/media/262483b0aaa67c5b074b0c9699379d8c.gif" alt="" width="40" height="40"  alt="" class="nav-img"> -->
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="m-4">
+       <button class="btn " (click)="refresh()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <router-outlet></router-outlet>
+</main>
+</div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,284 @@
+
+
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12  p-3">
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card  p-3 m-1 details">
+              <div class="row align-items-center text-red">
+                <div class="col-9">
+                  <div>
+                    <!-- <h4 class="fw-solid text-red">1400</h4> -->
+                    <h4 class="fw-solid text-red" *ngIf="getComplaintSummary">{{getComplaintSummary.dailyTickets}}</h4>
+                    <p class="subtitle text-sm text-dark mb-0">NEW TICKETS</p>
+                  </div>
+                </div>
+                <div class="col-3 text-end icon"><i class="fa fa-eye" style="color:
+                  #199EE1;" aria-hidden="true"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card p-3 m-1 details">
+              <div class="row align-items-center text-red">
+                <div class="col-9">
+                  <div>
+                    <!-- <h4 class="fw-solid text-red">284</h4> -->
+                    <h4 class="fw-solid text-red" *ngIf="getComplaintSummary">{{getComplaintSummary.pendingTickets}}</h4>
+                    <p class="subtitle text-sm text-dark mb-0">PENDING TICKETS</p>
+                  </div>
+                </div>
+                <div class="col-3 text-end icon"><img src="../../../../assets/img/pending.png" alt="lds;fdsf" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card p-3 m-1 details">
+              <div class="row align-items-center text-red">
+                <div class="col-9">
+                  <div>
+                    <!-- <h4 class="fw-solid text-red">500</h4> -->
+                    <h4 class="fw-solid text-red" *ngIf="getComplaintSummary">{{getComplaintSummary.closedTickets}}</h4>
+                    <p class="subtitle text-sm text-dark mb-0">CLOSED TICKETS</p>
+                  </div>
+                </div>
+                <div class="col-3 text-end icon"><i style="color:
+                  #199EE1;" class="fa-regular fa-circle-xmark"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-3">
+            <div class="card p-3 m-1 details">
+              <div class="row align-items-center text-red">
+                <div class="col-9">
+                  <div>
+                    <!-- <h4 class="fw-solid text-red">2100</h4> -->
+                    <h4 class="fw-solid text-red" *ngIf="getComplaintSummary">{{getComplaintSummary.totalTickets}}</h4>
+                    <p class="subtitle text-sm text-dark mb-0">TOTAL TICKETS</p>
+                  </div>
+                </div>
+                <div class="col-3 text-end icon"><img src="../../../../assets/img/all 2.png" alt="lds;fdsf" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-8">
+          <div class="card my-4  ">
+            <div class="card-body ">
+              <div class="pb-3 span">
+                <span class="comp-title fw-bold">Open Tickets</span>
+              </div>
+              <div class="anyClass">
+              <table class="table table-borderless " id="productmaster">
+                <thead class="bg-color">
+                  <tr>
+                    <th class="text-info ">Name</th>
+                    <th class="text-info">KoCode</th>
+                    <th class="text-info">Bank Name</th>
+                    <th class="text-info">Status</th>
+                    <th class="text-info">View Details</th>
+                  </tr>
+                </thead>
+                <tbody class="tbody">
+                  <tr *ngFor="let data of getComplaintNewList " class="">
+                    <td>{{data.empName}}</td>
+                    <td>{{data.koCode}}</td>
+                    <td>{{data.bankName}}</td>
+                    <td>{{data.complaintStatus}}</td>
+                    <td>
+                      <div>
+                        <button type="button" class="btn btn-sm btn7" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="GetComplaintListById(data.complaintId)"
+                        data-bs-dismiss="modal">Details</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr *ngFor="let data of getComplaintPendingList " class="">
+                    <td>{{data.empName}}</td>
+                    <td>{{data.koCode}}</td>
+                    <td>{{data.bankName}}</td>
+                    <td>{{data.complaintStatus}}</td>
+                    <!-- <td>{{data.bankName}}</td>
+                    <td class="text-color">Pending</td> -->
+                    <td>
+                      <div>
+                        <button type="button" class="btn btn-sm btn7" data-bs-target="#exampleModal" data-bs-toggle="modal" (click)="GetComplaintListById(data.complaintId)"
+                        data-bs-dismiss="modal">Details</button>
+                        <!-- <button type="button" class="btns btn-sm btn1">Details</button> -->
+                      </div>
+                    </td>
+                  </tr>
+
+                </tbody>
+              </table>
+              <!-- <pagination-controls (pageChange)="p = $event" class="float-right"></pagination-controls> -->
+            </div>
+            </div>
+          </div>
+        </div>
+          <div class="card-body my-4  col-md-4">
+            <div class="card-body " >
+              <!-- <div class="pb-3 ">
+                <span class="comp-title fw-bold">Recent Tickets</span>
+              </div> -->
+
+              <div class="table-body">
+                <div class=" span">
+                  <span class="comp-title fw-bold">Need Assistance</span>
+                </div>
+                <div class="anyClass2">
+              <table class="table table-borderless"  id="productmaster">
+                <thead class="thead-color">
+
+                </thead>
+                <tbody class="tbody ">
+                  <tr *ngFor="let data of getNeedAssistanceList" >
+                    <td>{{data.empName}}</td>
+                    <td >{{data.koCode}}</td>
+                    <td>
+                      <div>
+                        <button type="button" class="btn btn-sm btn7"  data-bs-target="#newexampleModal" data-bs-toggle="modal" (click)="GetComplaintListById(data.complaintId)"
+                        data-bs-dismiss="modal">Details</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content border-0">
+              <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="exampleModalLabel"> View Complaint Details</h5>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"
+                  id="Close"></button>
+              </div>
+              <div class="modal-body">
+
+                <table class="table table-bordered tables mt-2">
+                  <tr>
+                    <th class="th">AnyDesk:</th>
+                    <td class="td" *ngIf="getPendingList" >{{getPendingList.anyDeskNumber}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">KoCode:</th>
+                    <td class="td" *ngIf="getPendingList" >{{getPendingList.koCode}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Name:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.empName}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Coordinator Name:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.coordinatore}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Bank Name:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.bankName}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Telephone:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.mobileNumber}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Date:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.updatedAt |date: 'dd/MM/yyyy, h:mm:ss a'}}</td>
+                  </tr>
+                  <tr>
+                  <tr>
+                    <th class="th">Status:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.complaintStatus}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">OtherDetails:</th>
+                    <td class="td" *ngIf="getPendingList">{{getPendingList.otherDetails}}</td>
+                  </tr>
+                </table>
+                <div>
+                  <div class="text-center">
+                  <button class="btn btn-success m-1" data-bs-dismiss="modal" aria-label="Close"
+                  id="Close" (click)="closeComplaintList(getPendingList.complaintId)">Close Complaint </button>
+                  <button class="btn btn-primary m-1" data-bs-dismiss="modal" aria-label="Close"
+                  id="Close" >Cancel</button>
+                </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="newexampleModal" tabindex="-1" aria-labelledby="exampleModal" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content border-0">
+              <div class="modal-header bg-primary">
+                <h5 class="modal-title text-white" id="exampleModalLabel"> View All Pending List</h5>
+                <button type="button" class="btn-close text-white" data-bs-dismiss="modal" aria-label="Close"
+                  id="Close"></button>
+              </div>
+              <div class="modal-body">
+                <table class="table table-bordered tables mt-2">
+                  <tr>
+                    <th class="th">AnyDesk:</th>
+                    <td class="td" *ngIf="getPendingList" >{{getPendingList.anyDeskNumber}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">KoCode:</th>
+                    <td class="td" *ngIf="getPendingList" >{{getPendingList.koCode}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Name:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.empName}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Coordinator Name:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.coordinatore}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Bank Name:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.bankName}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Telephone:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.mobileNumber}}</td>
+                  </tr>
+                  <tr>
+                  <tr>
+                    <th class="th">Date:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.updatedAt |date: 'dd/MM/yyyy, h:mm:ss a'}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">Status:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.complaintStatus}}</td>
+                  </tr>
+                  <tr>
+                    <th class="th">OtherDetails:</th>
+                    <td class="td" *ngIf="getPendingList ">{{getPendingList.otherDetails}}</td>
+                  </tr>
+                </table>
+                <div class="text-center">
+                <button class="btn btn-success m-1" data-bs-dismiss="modal" aria-label="Close"
+                id="Close" (click)="closeComplaintList(getPendingList.complaintId)">Close Complaint</button>
+                <button class="btn btn-primary m-1" data-bs-dismiss="modal" aria-label="Close"
+                id="Close" >Cancel</button>
+              </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

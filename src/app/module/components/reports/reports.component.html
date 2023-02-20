@@ -1,0 +1,173 @@
+
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-12 ">
+
+      <div class="card card-box my-4">
+        <div class="card-body">
+          <form  [formGroup]="ReportForm">
+          <div class="row">
+            <div class="col-sm-5">
+              <h4 class="py-3">Reports</h4>
+            </div>
+            <div class="col-sm-7">
+              <div class="row">
+                <div class="col-sm-2">
+                  <p class="mt-4">Filter By</p>
+                </div>
+                <div class="col-sm-3 mt-3 ">
+                  <div class="form-group">
+                    <input type="date" class="form-control form-control-sm"    formControlName="startDate"
+                    [ngClass]="{ 'is-invalid': submitted && f.startDate.errors }"
+                      placeholder="Enter date">
+                      <div *ngIf="submitted && f.startDate.errors" class="invalid-feedback">
+                        <div style="margin-left: -4px;" *ngIf="f.startDate.errors.required"> Please add valid date</div>
+                      </div>
+                      <div style="margin-right:-88px; color:red;"  *ngIf="dateValue">Please add valid date</div>
+                      <!-- Please add a valid start and end date -->
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-3">
+                  <div class="form-group">
+                    <input type="date" class="form-control form-control-sm"
+                     formControlName="endDate"  [ngClass]="{ 'is-invalid': submitted && f.endDate.errors }"
+                      placeholder="Enter date">
+
+                      <!-- <div *ngIf="submitted && f.endDate.errors" class="invalid-feedback">
+                        <div *ngIf="f.endDate.errors.required"> Please Import Excel</div>
+                      </div> -->
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="row">
+                <div class="col-sm-6 mt-3">
+                  <button class="btn btn-outline-primary btn-sm btn7" (click)="OnSubmit()">Search</button>
+                </div>
+                <!-- <div class="col-sm-4 mt-3">
+                  <button class="btn btn-outline-primary btn-sm btn7" (click)="Clear()">Clear</button>
+                </div> -->
+                <div class="col-sm-6 mt-3">
+                  <button class="btn btn-outline-primary btn-sm btn7" (click)="PostComplaintExcel()">Export</button>
+                </div>
+              </div>
+            </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="table-responsive">
+              <div class="row" style="display: none;">
+                <div class="col-sm-12" >
+
+                  <div class="table-responsive">
+                    <table id="ExampleTable"  class="table table-borderless" >
+                      <thead class="bg-color">
+                        <tr>
+                          <!-- <th class="text-info">Sr.No</th> -->
+                          <th class="text-info" >KoCode</th>
+                          <th class="text-info">Agent Name</th>
+                          <th class="text-info">Mobile No</th>
+                          <th class="text-info">State</th>
+                          <th class="text-info">District</th>
+                          <th class="text-info">Region</th>
+                          <th class="text-info">Branch Name</th>
+                          <th class="text-info">Village Name</th>
+                          <th class="text-info">Bank Name</th>
+                          <th class="text-info">Coordinator Name</th>
+                          <th class="text-info">Reporting Manager</th>
+                          <th class="text-info">ClosedBy</th>
+                          <th class="text-info">Status</th>
+                          <th class="text-info">CreatedOn</th>
+                          <th class="text-info">UpdatedOn</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let data of getcomplaintlist" >
+                        <!-- <tr *ngFor="let data of getcomplaintlist " > -->
+                          <td>{{data.koCode}}</td>
+                          <td>{{data.empName}}</td>
+                          <td>{{data.mobileNumber}}</td>
+                          <td>{{data.state}}</td>
+                          <td>{{data.district}}</td>
+                          <td>{{data.region}}</td>
+                          <td>{{data.branch}}</td>
+                          <td>{{data.village}}</td>
+                          <td>{{data.bankName}}</td>
+                          <td>{{data.coordinatore}}</td>
+                          <td>{{data.reportingManager}}</td>
+                          <td>{{data.closedBy}}</td>
+                          <td>{{data.complaintStatus}}</td>
+                          <td>{{data.createdAt |date: 'dd/MM/yyyy, h:mm:ss a'}}</td>
+                          <td>{{data.updatedAt |date: 'dd/MM/yyyy, h:mm:ss a'}}</td>
+                          <!-- <td class="text-center"><i class="fa-sharp fa-solid fa-pen-to-square "></i></td> -->
+                        </tr>
+
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+
+              </div>
+              <table class="table table-borderless" >
+                <thead class="bg-color">
+                  <tr>
+                    <!-- <th class="text-info">Sr.No</th> -->
+                    <th class="text-info" >KoCode</th>
+                    <th class="text-info">Agent Name</th>
+                    <th class="text-info">Mobile No</th>
+                    <th class="text-info">State</th>
+                    <th class="text-info">District</th>
+                    <th class="text-info">Region</th>
+                    <th class="text-info">Branch Name</th>
+                    <th class="text-info">Village Name</th>
+                    <th class="text-info">Bank Name</th>
+                    <th class="text-info">Coordinator Name</th>
+                    <th class="text-info">Reporting Manager</th>
+                    <th class="text-info">ClosedBy</th>
+                    <th class="text-info">Status</th>
+                    <th class="text-info">CreatedOn</th>
+                    <th class="text-info">UpdatedOn</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                  <tr *ngFor="let data of getcomplaintlist | paginate: {itemsPerPage:5,currentPage:p}" >
+                  <!-- <tr *ngFor="let data of getcomplaintlist " > -->
+                    <td>{{data.koCode}}</td>
+                    <td>{{data.empName}}</td>
+                    <td>{{data.mobileNumber}}</td>
+                    <td>{{data.state}}</td>
+                    <td>{{data.district}}</td>
+                    <td>{{data.region}}</td>
+                    <td>{{data.branch}}</td>
+                    <td>{{data.village}}</td>
+                    <td>{{data.bankName}}</td>
+                    <td>{{data.coordinatore}}</td>
+                    <td>{{data.reportingManager}}</td>
+                    <td>{{data.closedBy}}</td>
+                    <td>{{data.complaintStatus}}</td>
+                    <td>{{data.createdAt |date: 'dd/MM/yyyy, h:mm:ss a'}}</td>
+                    <td>{{data.updatedAt |date: 'dd/MM/yyyy, h:mm:ss a'}}</td>
+                    <!-- <td class="text-center"><i class="fa-sharp fa-solid fa-pen-to-square "></i></td> -->
+                  </tr>
+
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-12 text-center">
+            <pagination-controls  (pageChange)="p = $event" class="float-right"></pagination-controls>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
